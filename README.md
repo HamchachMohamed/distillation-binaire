@@ -24,6 +24,22 @@ python -m pip install -r requirements.txt
 python main.py
 ```
 
+<<<<<<< HEAD
+=======
+Dans un terminal interactif, `python main.py` propose successivement `F`, la
+fraction massique d'éthanol `w_E,F`, la pression absolue `P` (kPa) et la
+température d'alimentation `T_F` (°C). Appuyer sur Entrée conserve la valeur
+proposée. `T_F` est comparée aux limites de bulle et de rosée pour qualifier
+l'état thermique de l'alimentation; elle n'est jamais employée à la place de
+la température d'équilibre calculée.
+
+Les figures T-x-y, y-x et, lorsque les spécifications sont présentes,
+McCabe–Thiele sont des figures Matplotlib distinctes. Un unique `plt.show()`
+les ouvre simultanément dans des fenêtres indépendantes, chacune avec la barre
+d'outils native (zoom, déplacement et sauvegarde). En environnement sans
+affichage, le programme le signale et conserve les PNG à 300 dpi.
+
+>>>>>>> d83d00c (Initial commit)
 La pression est toujours une pression **absolue en kPa** au niveau de la CLI; les
 équations travaillent en Pa. Les températures internes sont en K et affichées en
 °C. Les débits molaires sont en kmol/h.
@@ -34,6 +50,21 @@ Exemple avec les spécifications nécessaires à McCabe–Thiele :
 python main.py --pressure-kpa 101.325 --feed 30 --ethanol-mass-fraction 0.40 --xD 0.85 --xB 0.05 --reflux-ratio 4 --q 1
 ```
 
+<<<<<<< HEAD
+=======
+Exemple entièrement non interactif, pratique pour un calcul automatisé :
+
+```powershell
+python main.py --no-interactive --no-show --feed 30 --ethanol-mass-fraction 0.35 --pressure-kpa 100 --feed-temperature 30
+```
+
+`--backend TkAgg` (ou un backend GUI Matplotlib installé) peut être ajouté si
+Matplotlib a été configuré sur un backend non interactif. `--no-show` désactive
+seulement les fenêtres, pas la création des PNG. `--interactive` force les
+questions même si l'entrée standard est redirigée. L'ancien argument `--show`
+reste accepté; l'affichage est désormais le comportement par défaut.
+
+>>>>>>> d83d00c (Initial commit)
 `xD`, `xB` et `q` sont des fractions molaires d'éthanol; `R=L/D` est sans unité.
 Sans ces quatre arguments, le programme calcule l'ELV mais ne suppose aucun
 objectif de séparation. Les fichiers PNG (300 dpi) et CSV sont écrits dans
